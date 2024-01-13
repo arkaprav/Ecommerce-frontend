@@ -1,0 +1,95 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+
+  background: #35365f;
+  z-index: 100;
+  transition: all 0.5s ease;
+
+  width: 280px;
+}
+
+.sidebarItems {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 20px;
+  margin-top: 30px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.sidebarItem {
+  font-size: 40px;
+  font-weight: 700;
+  cursor: pointer;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  outline: none;
+  width: 200px;
+}
+
+.sidebarItem .normal {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 17px 7px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 200px;
+  height: 60px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  outline: none;
+}
+
+.sidebarItem .normal:hover {
+  background-color: #35365f;
+  outline: none;
+}
+
+.clicked {
+  background: white;
+  border: none;
+
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  background-color: white;
+  color: white;
+  border-radius: 1px;
+  height: 60px;
+
+  background-color: #686ed7;
+  border-radius: 5px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid #1a1b2f;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: 200px;
+  padding: 17px 7px;
+}
+
+.icons {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-right: 8px;
+}
+
+.slide {
+  margin-left: 220px;
+  transition: 0.6s ease;
+  cursor: pointer;
+  margin-bottom: 30px;
+}

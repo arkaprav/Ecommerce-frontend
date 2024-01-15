@@ -38,6 +38,7 @@ function Sidebar({ opt }) {
                 onClick={() => {
                   setOption(1);
                   // setClicked(1);
+                  navigate("/");
                 }}
               >
                 <div className="icons">

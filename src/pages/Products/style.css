@@ -1,7 +1,9 @@
-.container {
+.Container {
   display: flex;
   flex-direction: row;
+  height: max-content;
   /* position: relative; */
+  min-height: 100vh;
 }
 
 .products {
@@ -14,8 +16,9 @@
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-  margin-left: 300px;
-  margin-top: 40px;
+  /* margin-left: 300px; */
+  /* margin-top: 40px; */
+  margin: 40px auto;
   width: 1100px;
 
   height: 2000px;
@@ -79,4 +82,11 @@
 .p-btn2:hover {
   background-color: rgb(230, 45, 45);
   color: white;
+}
+
+.container-prod {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  flex: 1;
 }

@@ -1,0 +1,59 @@
+.Container {
+  display: flex;
+  flex-direction: row;
+  height: max-content;
+  /* position: relative; */
+  min-height: 100vh;
+}
+
+.container-prod {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  flex: 1;
+}
+
+.users {
+  padding-top: 60px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+  margin: auto;
+  font-family: "Poppins", sans-serif;
+}
+
+tr {
+  cursor: pointer;
+  border-right: 2px solid #ddd;
+  border-left: 2px solid #ddd;
+}
+th {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-top: 2px solid #ddd;
+  padding-bottom: 8px;
+  text-align: left;
+  border-bottom: 2px solid #ddd;
+  padding-left: 10px;
+}
+
+td {
+  position: relative;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  padding-left: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+}
+
+.mail {
+  padding-top: 6px;
+  text-size-adjust: 20px;
+  color: #a1acb8;
+}

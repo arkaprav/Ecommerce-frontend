@@ -7,8 +7,10 @@ import "./style.css";
 function Transactions() {
   return (
     <div className="Container">
-      <SearchBar />
       <Sidebar opt={6} />
+      <div className="container-prod">
+        <SearchBar />
+      </div>
     </div>
   );
 }

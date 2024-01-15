@@ -1,11 +1,9 @@
 .sidebar {
-  position: fixed;
+  /* position: fixed; */
   top: 0;
   left: 0;
-  height: 100%;
 
   background: #35365f;
-  z-index: 100;
   transition: all 0.5s ease;
 
   width: 280px;
@@ -92,4 +90,9 @@
   transition: 0.6s ease;
   cursor: pointer;
   margin-bottom: 30px;
+}
+
+.container-prod {
+  display: flex;
+  flex-direction: row;
 }

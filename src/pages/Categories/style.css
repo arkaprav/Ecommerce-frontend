@@ -1,0 +1,14 @@
+.Container {
+  display: flex;
+  flex-direction: row;
+  height: max-content;
+  /* position: relative; */
+  min-height: 100vh;
+}
+
+.container-prod {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  flex: 1;
+}

@@ -1,5 +1,5 @@
 .addproduct {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -17,16 +17,32 @@
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   margin-bottom: 25px;
+  flex-wrap: wrap; */
 }
-
-.addproduct:hover {
+.addproduct form {
+  display: flex;
+  flex-direction: row;
+  padding-left: 10px;
+  padding-right: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: 40px;
+}
+/* .addproduct:hover {
   border: 2px solid black;
+} */
+
+.form-group {
+  margin-right: 105px;
+  /* margin-top: 60x; */
 }
 
 .form-control {
-  width: 225px;
+  margin-bottom: 30px;
+  width: 450px;
   border-radius: 6px;
   padding: 15px;
+  /* padding: 20px 0 20px 0; */
 
   background: rgba(255, 255, 255, 0.2);
 
@@ -36,20 +52,27 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.form-group label {
+  padding-bottom: 10px;
+}
+
 .addbtn {
   height: 30px;
   width: 100px;
 
   background: rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
+  border-radius: 3px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   font-family: "Russo one", sans-serif;
+  align-items: start;
+  background-color: black;
+  color: white;
 }
 
 .addbtn:hover {
-  background-color: black;
+  background-color: rgb(38, 38, 38);
   color: white;
 }
 
@@ -59,15 +82,23 @@ label {
   padding-right: 20px;
   display: flex;
   flex-direction: column;
-  padding-top: 20px;
+  padding-top: 30px;
   padding-bottom: 3px;
 }
 
 .btnadd {
   display: flex;
-  flex-direction: column;
-  padding-left: 30%;
+  flex-direction: row;
+  align-items: flex-start;
+  /* margin-left: -360px; */
+  position: relative;
+  padding-left: 3.5%;
   padding-top: 20px;
+}
+
+.btnadd button {
+  position: relative;
+  left: 0;
 }
 
 .image-preview-container {
@@ -86,7 +117,29 @@ label {
 
 .heading {
   font-family: "Russo one", sans-serif;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center; 
+  align-items: center; */
   display: flex;
+  margin-left: 50px;
 }
+
+.Container {
+  display: flex;
+  flex-direction: row;
+  height: max-content;
+  /* position: relative; */
+  min-height: 100vh;
+}
+
+.container-prod {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  flex: 1;
+}
+
+/* .content-container {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+} */

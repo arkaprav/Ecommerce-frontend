@@ -6,8 +6,11 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 function Categories() {
   return (
     <div className="Container">
-      <SearchBar />
       <Sidebar opt={4} />
+
+      <div className="container-prod">
+        <SearchBar />
+      </div>
     </div>
   );
 }

@@ -3,7 +3,7 @@
   line-height: 28px;
   align-items: center;
   position: relative;
-  max-width: 470px;
+  width: 470px;
   margin: auto;
   padding-top: 20px;
 }
@@ -47,7 +47,8 @@ input:hover {
 .cont {
   height: 80px;
   position: relative;
-  width: 100%;
+  display: inline-block;
   margin-top: -8px;
   border-bottom: 1px solid #adb5bd;
+  width: 100%;
 }

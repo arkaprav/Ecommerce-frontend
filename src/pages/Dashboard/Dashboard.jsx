@@ -6,12 +6,12 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 
 function Dashboard() {
   return (
-    <>
-      <div className="container">
+    <div className="Container">
+      <Sidebar opt={1} />
+      <div className="container-prod">
         <SearchBar />
-        <Sidebar opt={1} />
       </div>
-    </>
+    </div>
   );
 }
 

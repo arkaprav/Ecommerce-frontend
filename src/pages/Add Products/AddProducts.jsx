@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import "./style.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import SearchBar from "../../components/Search Bar/SearchBar";
-import UploadWidget from "../../components/UploadWidget/UploadWidget";
+
+import Dropzone from "../../components/Dropzone/Dropzone";
 
 function AddProducts() {
   const [title, setTitle] = useState();
@@ -42,11 +43,10 @@ function AddProducts() {
         <SearchBar />
         <div className="content-container">
           <h1 className="heading">Add Product</h1>
-          <div className="btnadd">
-            <button className="addbtn" type="submit" onClick={handleSubmit}>
-              Add
-            </button>
+          <div className="dropzone">
+            <Dropzone image={image} setImage={setImage} />
           </div>
+
           <div className="addproduct">
             <form>
               <div className="form-group product-group">
@@ -140,7 +140,11 @@ function AddProducts() {
                 </div>
               )} */}
             </form>
-            <UploadWidget image={image} setImage={setImage} />
+            <div className="btnadd">
+              <button className="addbtn" type="submit" onClick={handleSubmit}>
+                Add
+              </button>
+            </div>
           </div>
         </div>
       </div>

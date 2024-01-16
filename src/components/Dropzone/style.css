@@ -1,0 +1,30 @@
+.delbtn {
+  z-index: 1;
+  position: absolute;
+
+  width: 28px;
+  border: none;
+
+  border-radius: 4px;
+
+  justify-content: center;
+  margin-left: 154.5px;
+  margin-top: 10px;
+  display: flex;
+  margin-right: 0;
+  color: #ef4444;
+  background: #ddd;
+}
+
+.delbtn:hover {
+  background-color: #ef4444;
+  color: white;
+}
+
+.drop-text {
+  font-family: "Russo one", sans-serif;
+  display: flex;
+  margin-top: 38%;
+
+  color: #cccccc;
+}

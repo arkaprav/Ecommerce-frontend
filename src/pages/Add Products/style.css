@@ -87,18 +87,17 @@ label {
 }
 
 .btnadd {
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  /* margin-left: -360px; */
-  position: relative;
-  padding-left: 3.5%;
   padding-top: 20px;
+  margin-bottom: 40px;
 }
 
 .btnadd button {
   position: relative;
-  left: 0;
+  margin-left: 50px;
 }
 
 .image-preview-container {
@@ -123,6 +122,10 @@ label {
   margin-left: 50px;
 }
 
+.dropzone {
+  display: flex;
+  margin-left: 50px;
+}
 .Container {
   display: flex;
   flex-direction: row;

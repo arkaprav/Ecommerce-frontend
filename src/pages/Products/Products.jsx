@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable no-unused-vars */
 import React from "react";
 import "./style.css";
@@ -13,21 +14,238 @@ function Products() {
       <div className="container-prod">
         <SearchBar />
         <div className="products">
-          <div className="product">
-            <div className="p-img"></div>
-            <div className="p-text">
-              <p>Title hai bhai </p>
-              <p>20rs</p>
-            </div>
-            <div className="p-btn">
-              <button className="p-btn1">
-                <CreateIcon />
-              </button>
-              <button className="p-btn2">
-                <DeleteIcon />
-              </button>
-            </div>
-          </div>
+          <table>
+            <tr>
+              <th>PRODUCT</th>
+              <th>CATEGORY</th>
+              <th>STOCK</th>
+              <th>PRICE</th>
+              <th>QTY</th>
+            </tr>
+            <>
+              <tr>
+                <td className="prod-name">
+                  <div className="image">
+                    <img
+                      className="prod-img"
+                      src="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1212,c_limit/pjwdnan4wsg27ikvefva/air-force-1.jpg"
+                      alt=""
+                    />
+                  </div>
+
+                  <span className="prod-text">Nike Air Force One's</span>
+                </td>
+                <td>Shoes</td>
+                <td>IN STOCK</td>
+                <td>Rs. 4000</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td className="prod-name">
+                  <div className="image">
+                    <img
+                      className="prod-img"
+                      src="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1212,c_limit/pjwdnan4wsg27ikvefva/air-force-1.jpg"
+                      alt=""
+                    />
+                  </div>
+
+                  <span className="prod-text">Nike Air Force One's</span>
+                </td>
+                <td>Shoes</td>
+                <td>IN STOCK</td>
+                <td>Rs. 4000</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td className="prod-name">
+                  <div className="image">
+                    <img
+                      className="prod-img"
+                      src="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1212,c_limit/pjwdnan4wsg27ikvefva/air-force-1.jpg"
+                      alt=""
+                    />
+                  </div>
+
+                  <span className="prod-text">Nike Air Force One's</span>
+                </td>
+                <td>Shoes</td>
+                <td>IN STOCK</td>
+                <td>Rs. 4000</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td className="prod-name">
+                  <div className="image">
+                    <img
+                      className="prod-img"
+                      src="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1212,c_limit/pjwdnan4wsg27ikvefva/air-force-1.jpg"
+                      alt=""
+                    />
+                  </div>
+
+                  <span className="prod-text">Nike Air Force One's</span>
+                </td>
+                <td>Shoes</td>
+                <td>IN STOCK</td>
+                <td>Rs. 4000</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td className="prod-name">
+                  <div className="image">
+                    <img
+                      className="prod-img"
+                      src="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1212,c_limit/pjwdnan4wsg27ikvefva/air-force-1.jpg"
+                      alt=""
+                    />
+                  </div>
+
+                  <span className="prod-text">Nike Air Force One's</span>
+                </td>
+                <td>Shoes</td>
+                <td>IN STOCK</td>
+                <td>Rs. 4000</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td className="prod-name">
+                  <div className="image">
+                    <img
+                      className="prod-img"
+                      src="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1212,c_limit/pjwdnan4wsg27ikvefva/air-force-1.jpg"
+                      alt=""
+                    />
+                  </div>
+
+                  <span className="prod-text">Nike Air Force One's</span>
+                </td>
+                <td>Shoes</td>
+                <td>IN STOCK</td>
+                <td>Rs. 4000</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td className="prod-name">
+                  <div className="image">
+                    <img
+                      className="prod-img"
+                      src="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1212,c_limit/pjwdnan4wsg27ikvefva/air-force-1.jpg"
+                      alt=""
+                    />
+                  </div>
+
+                  <span className="prod-text">Nike Air Force One's</span>
+                </td>
+                <td>Shoes</td>
+                <td>IN STOCK</td>
+                <td>Rs. 4000</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td className="prod-name">
+                  <div className="image">
+                    <img
+                      className="prod-img"
+                      src="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1212,c_limit/pjwdnan4wsg27ikvefva/air-force-1.jpg"
+                      alt=""
+                    />
+                  </div>
+
+                  <span className="prod-text">Nike Air Force One's</span>
+                </td>
+                <td>Shoes</td>
+                <td>IN STOCK</td>
+                <td>Rs. 4000</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td className="prod-name">
+                  <div className="image">
+                    <img
+                      className="prod-img"
+                      src="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1212,c_limit/pjwdnan4wsg27ikvefva/air-force-1.jpg"
+                      alt=""
+                    />
+                  </div>
+
+                  <span className="prod-text">Nike Air Force One's</span>
+                </td>
+                <td>Shoes</td>
+                <td>IN STOCK</td>
+                <td>Rs. 4000</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td className="prod-name">
+                  <div className="image">
+                    <img
+                      className="prod-img"
+                      src="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1212,c_limit/pjwdnan4wsg27ikvefva/air-force-1.jpg"
+                      alt=""
+                    />
+                  </div>
+
+                  <span className="prod-text">Nike Air Force One's</span>
+                </td>
+                <td>Shoes</td>
+                <td>IN STOCK</td>
+                <td>Rs. 4000</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td className="prod-name">
+                  <div className="image">
+                    <img
+                      className="prod-img"
+                      src="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1212,c_limit/pjwdnan4wsg27ikvefva/air-force-1.jpg"
+                      alt=""
+                    />
+                  </div>
+
+                  <span className="prod-text">Nike Air Force One's</span>
+                </td>
+                <td>Shoes</td>
+                <td>IN STOCK</td>
+                <td>Rs. 4000</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td className="prod-name">
+                  <div className="image">
+                    <img
+                      className="prod-img"
+                      src="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1212,c_limit/pjwdnan4wsg27ikvefva/air-force-1.jpg"
+                      alt=""
+                    />
+                  </div>
+
+                  <span className="prod-text">Nike Air Force One's</span>
+                </td>
+                <td>Shoes</td>
+                <td>IN STOCK</td>
+                <td>Rs. 4000</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td className="prod-name">
+                  <div className="image">
+                    <img
+                      className="prod-img"
+                      src="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1212,c_limit/pjwdnan4wsg27ikvefva/air-force-1.jpg"
+                      alt=""
+                    />
+                  </div>
+
+                  <span className="prod-text">Nike Air Force One's</span>
+                </td>
+                <td>Shoes</td>
+                <td>IN STOCK</td>
+                <td>Rs. 4000</td>
+                <td>100</td>
+              </tr>
+            </>
+          </table>
         </div>
       </div>
     </div>

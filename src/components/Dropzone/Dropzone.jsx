@@ -19,7 +19,7 @@ const Dropzone = ({ image, setImage }) => {
     const reader = new FileReader();
     reader.onload = (event) => {
       const base64String = event.target.result;
-      setImage(base64String);
+      setImage(file);
     };
 
     reader.readAsDataURL(file);
@@ -73,7 +73,9 @@ const Dropzone = ({ image, setImage }) => {
             }}
           />
         ) : (
-          <p className="drop-text">Drag and drop an image here, or click to select one</p>
+          <p className="drop-text">
+            Drag and drop an image here, or click to select one
+          </p>
         )}
       </div>
     </>

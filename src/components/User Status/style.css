@@ -6,6 +6,10 @@
   height: 20px;
   width: auto;
   padding: 3px;
+  font-size: 12.1875px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: 700;
 }
 
 .stat-btn2 {
@@ -15,6 +19,10 @@
   height: 20px;
   width: auto;
   padding: 3px;
+  font-size: 12.1875px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: 700;
 }
 
 .stat-btn3 {
@@ -24,4 +32,115 @@
   height: 20px;
   width: auto;
   padding: 3px;
+  font-size: 12.1875px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: 700;
+}
+
+.stat-btn4 {
+  color: #ffab00;
+  display: flex;
+  flex-direction: row;
+}
+
+.stat-btn5 {
+  color: #71dd37;
+  display: flex;
+  flex-direction: row;
+}
+.stat-btn6 {
+  color: #8592a3;
+  display: flex;
+  flex-direction: row;
+}
+
+.stat-btn7 {
+  color: #ff3e1d;
+  display: flex;
+  flex-direction: row;
+}
+
+.stat-btn8 {
+  background-color: #e8fadf !important;
+  color: #71dd37 !important;
+  border-radius: 0.25rem;
+  outline: none;
+  height: 20px;
+  width: auto;
+  padding: 3px;
+  font-size: 12.1875px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: 700;
+}
+
+.stat-btn9 {
+  background-color: #fff2d6 !important;
+  color: #ffab00 !important;
+  border-radius: 0.25rem;
+  outline: none;
+  height: 20px;
+  width: auto;
+  padding: 3px;
+  font-size: 12.1875px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: 700;
+}
+
+.stat-btn10 {
+  background-color: #e7e7ff !important;
+  color: #696cff !important;
+  border-radius: 0.25rem;
+  outline: none;
+  height: 20px;
+  width: auto;
+  padding: 3px;
+  font-size: 12.1875px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: 700;
+}
+
+.stat-btn11 {
+  background-color: #d7f5fc !important;
+  color: #03c3ec !important;
+  border-radius: 0.25rem;
+  outline: none;
+  height: 20px;
+  width: auto;
+  padding: 3px;
+  font-size: 12.1875px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: 700;
+}
+
+.stat-btn12 {
+  background-color: #e8fadf !important;
+  color: #71dd37 !important;
+  border-radius: 0.25rem;
+  outline: none;
+  height: 20px;
+  width: auto;
+  padding: 3px;
+  font-size: 12.1875px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: 700;
+}
+
+.stat-btn13 {
+  background-color: #ffe0db !important;
+  color: #b81800 !important;
+  border-radius: 0.25rem;
+  outline: none;
+  height: 20px;
+  width: auto;
+  padding: 3px;
+  font-size: 12.1875px;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-weight: 700;
 }

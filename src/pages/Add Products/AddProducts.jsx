@@ -19,23 +19,6 @@ function AddProducts() {
     console.log(image);
   };
 
-  // const handleImageChange = (e) => {
-  //   const selectedImage = e.target.files[0];
-  //   // setImage(selectedImage);
-
-  //   // Image preview
-  //   const reader = new FileReader();
-  //   reader.onloadend = () => {
-  //     setImagePreview(reader.result);
-  //     setImage(reader.result.split(",")[1]);
-  //   };
-  //   if (selectedImage) {
-  //     reader.readAsDataURL(selectedImage);
-  //   } else {
-  //     setImagePreview(null);
-  //   }
-  // };
-
   return (
     <div className="Container">
       <Sidebar opt={3} />
@@ -119,26 +102,6 @@ function AddProducts() {
                   placeholder="Enter description"
                 />
               </div>
-              {/* <div className="form-group">
-                <label htmlFor="image">Image</label>
-                <input
-                  onChange={}
-                  className="form-control"
-                  type="file"
-                  id="image"
-                  name="image"
-                  accept="image/*"
-                />
-              </div> */}
-              {/* {imagePreview && (
-                <div className="image-preview-container">
-                  <img
-                    src={imagePreview}
-                    alt="Image Preview"
-                    className="image-preview"
-                  />
-                </div>
-              )} */}
             </form>
             <div className="btnadd">
               <button className="addbtn" type="submit" onClick={handleSubmit}>

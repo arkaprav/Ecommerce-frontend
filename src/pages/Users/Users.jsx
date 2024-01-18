@@ -35,7 +35,7 @@ function Users() {
               </tr>
               <tr>
                 <td className="right" scope="row">
-                  Arnab Chakraborty
+                  Rahul Kumar
                   <span className="mail">arnab192023@gmail.com</span>
                 </td>
                 <td>Admin/Manager</td>
@@ -47,7 +47,7 @@ function Users() {
               </tr>
               <tr>
                 <td className="right" scope="row">
-                  Arnab Chakraborty
+                  Suprit Kumar
                   <span className="mail">arnab192023@gmail.com</span>{" "}
                 </td>
                 <td>Admin/Manager</td>

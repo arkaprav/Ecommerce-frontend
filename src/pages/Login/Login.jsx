@@ -1,15 +1,18 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-
+import { useCookies } from "react-cookie";
+import "./style.css";
 import axios from "axios";
 
 const Login = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [, setCookies] = useCookies(["access_token"]);
 
   const onSubmit = async (event) => {
     event.preventDefault();
@@ -21,7 +24,9 @@ const Login = () => {
           password,
         }
       );
+      setCookies("access_token", data);
       console.log(data);
+      navigate("/");
     } catch (err) {
       console.error(err);
     }

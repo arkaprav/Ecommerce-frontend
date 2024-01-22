@@ -8,11 +8,24 @@ import "./style.css";
 import UserStatus from "../../components/User Status/UserStatus";
 import { data } from "../../data/Data";
 import { filterData } from "../../helpers/datafilter";
+import { useNavigate } from "react-router-dom";
 function Transactions() {
   const [search, setSearch] = useState("");
   const [payment, setPayment] = useState(null);
   const [mode, setMode] = useState(null);
   const [tdata, setTdata] = useState(data);
+
+  const navigate = useNavigate();
+
+  // get unique data function
+
+  const getUniqueData = (objectdata, field) => {
+    let uniqueData = objectdata.map((obj) => obj[field]);
+    let x = new Set(uniqueData);
+    return [...x];
+  };
+
+  // filter function
 
   useEffect(() => {
     if (payment !== null || mode !== null) {
@@ -21,20 +34,31 @@ function Transactions() {
         if (payment === "all") {
           // do nothing
         } else {
-          filterList.push({ payment: `${payment}` });
+          filterList.push({
+            field: "payment",
+            value: `${payment}`,
+            operator: (a, b) => a === b,
+          });
         }
       }
       if (mode !== null) {
         if (mode === "all") {
           // do nothing
         } else {
-          filterList.push({ mode_of_payment: `${mode}` });
+          filterList.push({
+            field: "mode_of_payment",
+            value: `${mode}`,
+            operator: (a, b) => a === b,
+          });
         }
       }
+      console.log(filterList);
       let newData = filterData(data, filterList);
       setTdata(newData);
     }
   }, [payment, mode]);
+
+  // return statements
 
   return (
     <div className="Container">
@@ -51,7 +75,7 @@ function Transactions() {
             }}
           >
             <option value="all">All</option>
-
+            <option value="Paid">Paid</option>
             <option value="Pend">Pending</option>
             <option value="Cancelled"> Cancelled</option>
             <option value="Failed">Failed</option>
@@ -66,26 +90,32 @@ function Transactions() {
             }}
           >
             <option value="all">All</option>
-            <option value="UPI">UPI</option>
-            <option value="Debit Card">Debit Card</option>
-            <option value="Credit Card">Credit Card</option>
-            <option value="Net Banking">Net Banking</option>
+            {getUniqueData(data, "mode_of_payment").map((x) => (
+              <option key={x.id} value={x}>
+                {x}
+              </option>
+            ))}
           </select>
         </div>
 
         <div className="transactions">
           <table>
             <tr>
-              <th className="center">ORDER ID</th>
+              <th>ORDER ID</th>
               <th>CUSTOMER</th>
               <th>DATE</th>
               <th>PAYMENT</th>
 
-              <th className="center">MODE OF PAYMENT</th>
+              <th>MODE OF PAYMENT</th>
             </tr>
             <>
               {tdata?.map((item) => (
-                <tr key={item.id}>
+                <tr
+                  key={item.id}
+                  onClick={() => {
+                    navigate(`/userdetails/${item.id}`);
+                  }}
+                >
                   <td className="center">{item.id}</td>
                   <td>{item.name}</td>
                   <td>{item.date}</td>

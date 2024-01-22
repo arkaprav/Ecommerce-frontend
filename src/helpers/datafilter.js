@@ -6,9 +6,9 @@ export const filterData = (dataArray, filters) => {
   } else {
     return dataArray.filter((item) => {
       return filters.every((filter) => {
-        const [field, value] = Object.entries(filter)[0];
-        console.log(Object.entries(filter));
-        return item[field] === value;
+        const { field, value, operator } = filter;
+
+        return operator(item[field], value);
       });
     });
   }

@@ -11,6 +11,7 @@
   flex-direction: column;
   width: fit-content;
   flex: 1;
+  position: relative;
 }
 
 .transactions {
@@ -20,15 +21,21 @@
 .filter {
   display: flex;
   flex-direction: row;
-  right: 10px;
+  right: 63px;
+  top: 80px;
+  position: absolute;
+  margin-top: 20px;
 }
 
 .filter select {
   margin-right: 10px;
+  height: 25px;
+  width: 150px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 4px;
 }
 
 .center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding-left: 40px;
 }

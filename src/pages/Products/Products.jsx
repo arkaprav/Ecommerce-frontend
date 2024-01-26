@@ -10,22 +10,63 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import UserStatus from "../../components/User Status/UserStatus";
 import { data } from "../../data/Data";
 import { filterData } from "../../helpers/datafilter";
+import Pagination from "@mui/material/Pagination";
+import axios from "axios";
 
 function Products() {
-  const [pData, setPData] = useState(data);
+  const [pData, setPData] = useState([]);
   const [stock, setStock] = useState(null);
   const [cat, setCat] = useState(null);
   const [brand, setBrand] = useState(null);
+  const [odata, setOdata] = useState([]);
 
-  // get unique data function
+  const [pagination, setPagination] = useState(1);
+  const [count, setCount] = useState(1);
+
+  //------------------------------------datafecth-------------------------//
+
+  useEffect(() => {
+    const fetchfnc = async () => {
+      try {
+        const { data } = await axios.get(
+          " https://ecommerce-back-end-orpin.vercel.app/api/products/all"
+        );
+        console.log(data);
+        setOdata(data);
+        setPData(data);
+      } catch (e) {
+        console.error(e);
+      }
+    };
+
+    fetchfnc();
+  }, []);
+
+  //  ---------------------filter function ---------------------------------//
+  const handleChange = (e, p) => {
+    setPagination(p);
+  };
+
+  //----------------------------- useEffect pagenation---------------------//
+
+  useEffect(() => {
+    setCount(Math.ceil(pData.length / 10));
+  }, [pData]);
+
+  //  -----------------------------slice  tdata  useeffect------------------//
+
+  useEffect(() => {}, [pagination]);
+
+  //-------------------------------- get unique data function----------------//
 
   const getUniqueData = (objectdata, field) => {
+    console.log(objectdata);
     let uniqueData = objectdata.map((obj) => obj[field]);
     let x = new Set(uniqueData);
     return [...x];
   };
 
-  //  filter function
+  //------------------------------------  filter function--------------------//
 
   useEffect(() => {
     if (brand !== null || cat !== null || stock !== null) {
@@ -73,12 +114,12 @@ function Products() {
       }
 
       console.log(filterList);
-      let newData = filterData(data, filterList);
+      let newData = filterData(odata, filterList);
       setPData(newData);
     }
   }, [cat, brand, stock]);
 
-  // return statement
+  //--------------------------------------------- return statement-------------------------------//
 
   return (
     <div className="Container">
@@ -112,11 +153,12 @@ function Products() {
             }}
           >
             <option value="all">All</option>
-            {getUniqueData(data, "category").map((x) => (
-              <option key={x.id} value={x}>
-                {x}
-              </option>
-            ))}
+            {odata &&
+              getUniqueData(odata, "categoryId")?.map((x) => (
+                <option key={x.id} value={x}>
+                  {x}
+                </option>
+              ))}
           </select>
 
           <select
@@ -128,11 +170,12 @@ function Products() {
             }}
           >
             <option value="all">All</option>
-            {getUniqueData(data, "brand").map((x) => (
-              <option key={x.id} value={x}>
-                {x}
-              </option>
-            ))}
+            {odata &&
+              getUniqueData(odata, "brand").map((x) => (
+                <option key={x.id} value={x}>
+                  {x}
+                </option>
+              ))}
           </select>
         </div>
 
@@ -149,33 +192,41 @@ function Products() {
               <th>QTY</th>
             </tr>
             <>
-              {pData?.map((item) => (
-                <tr key={item.id}>
-                  <td className="prod-name">
-                    <div className="image">
-                      <img
-                        className="prod-img"
-                        src="https://static.nike.com/a/images/f_auto/dpr_2.0,cs_srgb/w_1212,c_limit/pjwdnan4wsg27ikvefva/air-force-1.jpg"
-                        alt=""
-                      />
-                    </div>
+              {pData
+                ?.slice((pagination - 1) * 10, (pagination - 1) * 10 + 10)
+                ?.map((item) => (
+                  <tr key={item.id}>
+                    <td className="prod-name">
+                      <div className="image">
+                        <img
+                          className="prod-img"
+                          src={item.image.replace(/_/g, "/").replace(/-/g, "+")}
+                          alt=""
+                        />
+                      </div>
 
-                    <span className="prod-text">{item.product_name}</span>
-                  </td>
-                  <td>{item.brand}</td>
-                  <td>{item.category}</td>
-                  <td>
-                    <UserStatus
-                      status={item.quantity > 0 ? "instock" : "outstock"}
-                    />
-                  </td>
-                  <td>Rs {item.price}</td>
-                  <td>{item.quantity}</td>
-                </tr>
-              ))}
+                      <span className="prod-text">{item.name}</span>
+                    </td>
+                    <td>{item.brand}</td>
+                    <td>{item.category}</td>
+                    <td>
+                      <UserStatus
+                        status={item.quantity > 0 ? "instock" : "outstock"}
+                      />
+                    </td>
+                    <td>Rs {item.retailPrice}</td>
+                    <td>{item.quantity}</td>
+                  </tr>
+                ))}
             </>
           </table>
         </div>
+        <Pagination
+          className="pagination"
+          count={count}
+          color="primary"
+          onChange={handleChange}
+        ></Pagination>
       </div>
     </div>
   );

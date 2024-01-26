@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
@@ -6,11 +7,29 @@ import "./style.css";
 import UserStatus from "../../components/User Status/UserStatus";
 import { userData } from "../../data/userData";
 import { filterData } from "../../helpers/datafilter";
+import Pagination from "@mui/material/Pagination";
+import { useNavigate } from "react-router-dom";
 
 function Users() {
   const [role, setRole] = useState(null);
   const [uData, setUData] = useState(userData);
+  const [pagination, setPagination] = useState(1);
+  const [count, setCount] = useState(1);
+  const navigate = useNavigate();
   //  ---------------------filter function ---------------------------------//
+  const handleChange = (e, p) => {
+    setPagination(p);
+  };
+
+  // useEffect pagenation
+
+  useEffect(() => {
+    setCount(Math.ceil(uData.length / 10));
+  }, [uData]);
+
+  //  slice  tdata  useeffect
+
+  useEffect(() => {}, [pagination]);
 
   useEffect(() => {
     if (role !== null) {
@@ -69,23 +88,38 @@ function Users() {
               <th>STATUS</th>
             </tr>
             <>
-              {uData?.map((item) => (
-                <tr key={item.id}>
-                  <td className="right" scope="row">
-                    {item.name}
-                    <span className="mail">{item.email}</span>
-                  </td>
-                  <td>{item.role}</td>
-                  <td>{item.plan}</td>
-                  <td>{item.billing}</td>
-                  <td>
-                    <UserStatus status={item.status} />
-                  </td>
-                </tr>
-              ))}
+              {uData
+                .slice((pagination - 1) * 10, (pagination - 1) * 10 + 10)
+                ?.map((item) => (
+                  <tr key={item.id}>
+                    <td className="right" scope="row">
+                      <span
+                        className="pname"
+                        onClick={() => {
+                          navigate(`/userdetails/${item.id}`);
+                        }}
+                      >
+                        {item.name}
+                      </span>
+                      <span className="mail">{item.email}</span>
+                    </td>
+                    <td>{item.role}</td>
+                    <td>{item.plan}</td>
+                    <td>{item.billing}</td>
+                    <td>
+                      <UserStatus status={item.status} />
+                    </td>
+                  </tr>
+                ))}
             </>
           </table>
         </div>
+        <Pagination
+          className="pagination"
+          count={count}
+          color="primary"
+          onChange={handleChange}
+        ></Pagination>
       </div>
     </div>
   );

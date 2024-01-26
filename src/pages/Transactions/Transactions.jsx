@@ -7,15 +7,34 @@ import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import "./style.css";
 import UserStatus from "../../components/User Status/UserStatus";
 import { data } from "../../data/Data";
+import Pagination from "@mui/material/Pagination";
 import { filterData } from "../../helpers/datafilter";
 import { useNavigate } from "react-router-dom";
+
 function Transactions() {
   const [search, setSearch] = useState("");
   const [payment, setPayment] = useState(null);
   const [mode, setMode] = useState(null);
   const [tdata, setTdata] = useState(data);
+  const [pagination, setPagination] = useState(1);
+
+  const [count, setCount] = useState();
+
+  const handleChange = (e, p) => {
+    setPagination(p);
+  };
 
   const navigate = useNavigate();
+
+  // useEffect pagenation
+
+  useEffect(() => {
+    setCount(Math.ceil(tdata.length / 10));
+  }, [tdata]);
+
+  //  slice  tdata  useeffect
+
+  useEffect(() => {}, [pagination]);
 
   // get unique data function
 
@@ -109,25 +128,35 @@ function Transactions() {
               <th>MODE OF PAYMENT</th>
             </tr>
             <>
-              {tdata?.map((item) => (
-                <tr
-                  key={item.id}
-                  onClick={() => {
-                    navigate(`/userdetails/${item.id}`);
-                  }}
-                >
-                  <td className="center">{item.id}</td>
-                  <td>{item.name}</td>
-                  <td>{item.date}</td>
-                  <td>
-                    <UserStatus status={item.payment.toLowerCase()} />
-                  </td>
-                  <td className="center">{item.mode_of_payment}</td>
-                </tr>
-              ))}
+              {tdata
+                .slice((pagination - 1) * 10, (pagination - 1) * 10 + 10)
+                ?.map((item) => (
+                  <tr key={item.id}>
+                    <td className="center">{item.id}</td>
+                    <td
+                      className="pname"
+                      onClick={() => {
+                        navigate(`/userdetails/${item.id}`);
+                      }}
+                    >
+                      {item.name}
+                    </td>
+                    <td>{item.date}</td>
+                    <td>
+                      <UserStatus status={item.payment.toLowerCase()} />
+                    </td>
+                    <td className="center">{item.mode_of_payment}</td>
+                  </tr>
+                ))}
             </>
           </table>
         </div>
+        <Pagination
+          className="pagination"
+          count={count}
+          color="primary"
+          onChange={handleChange}
+        ></Pagination>
       </div>
     </div>
   );

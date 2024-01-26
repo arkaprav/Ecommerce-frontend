@@ -39,3 +39,11 @@
 .center {
   padding-left: 40px;
 }
+
+.pagination {
+  margin: auto;
+}
+
+.pname:hover {
+  text-decoration: underline;
+}

@@ -26,7 +26,6 @@ table {
 }
 
 tr {
-  cursor: pointer;
   border-right: 2px solid #ddd;
   border-left: 2px solid #ddd;
 }
@@ -53,6 +52,9 @@ td {
   flex-direction: column;
 }
 
+.right:hover .pname {
+  text-decoration: underline;
+}
 .mail {
   padding-top: 6px;
   text-size-adjust: 20px;

@@ -6,6 +6,7 @@ import SearchBar from "../../components/Search Bar/SearchBar";
 import axios from "axios";
 import Dropzone from "../../components/Dropzone/Dropzone";
 import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 function AddProducts() {
   const [title, setTitle] = useState();
@@ -17,11 +18,12 @@ function AddProducts() {
   const [image, setImage] = useState(null);
   const [description, setDescription] = useState();
   // const [imagePreview, setImagePreview] = useState(null);
-
+  const navigate = useNavigate();
   const [cookies] = useCookies(["access_token"]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(image);
     const productData = {
       name: title,
       brand: brand,
@@ -34,6 +36,7 @@ function AddProducts() {
 
     // Call the createProduct function to send the data to the backend
     await createProduct(productData);
+    navigate("/products");
   };
 
   const createProduct = async (productData) => {
@@ -54,6 +57,8 @@ function AddProducts() {
       formData.append("purchasePrice", productData.purchasePrice);
       formData.append("retailPrice", productData.retailPrice);
       formData.append("catgeoryId", productData.catgeoryId);
+      formData.append("brand", productData.brand);
+
       formData.append("product_image", productData.product_image);
       console.log(formData);
 
@@ -155,6 +160,20 @@ function AddProducts() {
                   placeholder="Enter Category"
                 />
               </div>
+              {/* <div className="form-group quantity-group">
+                <label htmlFor="price">Quantity</label>
+                <input
+                  value={quantity}
+                  onChange={(e) => {
+                    setRetail(e.target.value);
+                  }}
+                  className="form-control quantity-inp"
+                  type="number"
+                  id="price"
+                  name="price"
+                  placeholder="Enter quantity"
+                />
+              </div> */}
 
               <div className="form-group">
                 <label htmlFor="description">Description</label>

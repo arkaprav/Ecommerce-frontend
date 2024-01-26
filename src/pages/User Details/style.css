@@ -1,8 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,700&display=swap");
 
 .user-cred {
-  height: 600.7px;
-  width: 430px;
+  height: 550.7px;
+  width: 360px;
   margin: 24px;
   min-height: auto;
   min-width: auto;
@@ -14,7 +14,7 @@
 
 .user-pic {
   height: 213.675px;
-  width: 382px;
+  width: 325.733px;
 
   border-radius: 5px;
   margin: 24px;
@@ -43,7 +43,9 @@
 
 .role {
   height: 21.8px;
-  width: 65.3333px;
+  width: auto;
+  padding-left: 10px;
+  padding-right: 10px;
   display: flex;
   flex-direction: column;
   background-color: #ebeef0;
@@ -61,14 +63,14 @@
 
 .details {
   height: 28.6px;
-  width: 395.733px;
+  width: 325.733px;
   border-bottom: 1px solid #a0a1a2;
   margin: 24px 24px 0px 24px;
 }
 
 .info {
   height: 296.217px;
-  width: 395.733px;
+  width: 325.733px;
   margin: 0px 24px 24px 24px;
 }
 
@@ -81,7 +83,7 @@
   margin: 24px 0px 24px 0px;
   display: flex;
   flex-direction: column;
-  max-width: 900px;
+  max-width: 800px;
 
   padding-left: 20px;
 }
@@ -92,13 +94,29 @@
   border-bottom: 1px solid #a0a1a2;
   margin-bottom: 10px;
   font-family: "Nunito Sans", -apple-system;
-  width: 900px;
+  min-width: 700px;
 }
 
 .order-table {
-  width: 1000px;
+  min-width: 800px;
 }
 
 .order-table table {
   margin: 0;
+  width: 100%;
+}
+
+.Container {
+  display: flex;
+  flex-direction: row;
+  height: max-content;
+  /* position: relative; */
+  min-height: 100vh;
+}
+
+.container-prod {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  flex: 1;
 }

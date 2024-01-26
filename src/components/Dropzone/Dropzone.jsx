@@ -19,6 +19,7 @@ const Dropzone = ({ image, setImage }) => {
     const reader = new FileReader();
     reader.onload = (event) => {
       const base64String = event.target.result;
+      console.log(base64String);
       setImage(file);
     };
 

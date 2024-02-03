@@ -1,4 +1,8 @@
-.Container {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.outer-container {
   display: flex;
   flex-direction: row;
   height: max-content;
@@ -6,9 +10,21 @@
   min-height: 100vh;
 }
 
-.container-prod {
+.inner-container {
   display: flex;
   flex-direction: column;
   /* width: fit-content; */
   flex: 1;
+}
+
+.donut-chart {
+  padding-left: 20px;
+}
+
+.bar-cont {
+  margin-left: 15px;
+}
+
+.out-cont {
+  margin-left: 10px;
 }

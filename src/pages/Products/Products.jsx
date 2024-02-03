@@ -12,6 +12,7 @@ import { data } from "../../data/Data";
 import { filterData } from "../../helpers/datafilter";
 import Pagination from "@mui/material/Pagination";
 import axios from "axios";
+import loader from "../../assets/loader.gif";
 
 function Products() {
   const [pData, setPData] = useState([]);
@@ -128,99 +129,108 @@ function Products() {
         <SearchBar />
 
         {/* --------------------------Filters---------------------------------- */}
+        {pData.length > 0 ? (
+          <>
+            {" "}
+            <div className="filter">
+              <select
+                name="filter-search"
+                id="filter"
+                value={stock}
+                onChange={(e) => {
+                  setStock(e.target.value);
+                }}
+              >
+                <option value="all">All</option>
 
-        <div className="filter">
-          <select
-            name="filter-search"
-            id="filter"
-            value={stock}
-            onChange={(e) => {
-              setStock(e.target.value);
-            }}
-          >
-            <option value="all">All</option>
+                <option value="in stock">In Stock</option>
+                <option value="out of stock"> Out of Stock</option>
+              </select>
 
-            <option value="in stock">In Stock</option>
-            <option value="out of stock"> Out of Stock</option>
-          </select>
+              <select
+                name="filter-search"
+                id="filter"
+                value={cat}
+                onChange={(e) => {
+                  setCat(e.target.value);
+                }}
+              >
+                <option value="all">All</option>
+                {odata &&
+                  getUniqueData(odata, "categoryId")?.map((x) => (
+                    <option key={x.id} value={x}>
+                      {x}
+                    </option>
+                  ))}
+              </select>
 
-          <select
-            name="filter-search"
-            id="filter"
-            value={cat}
-            onChange={(e) => {
-              setCat(e.target.value);
-            }}
-          >
-            <option value="all">All</option>
-            {odata &&
-              getUniqueData(odata, "categoryId")?.map((x) => (
-                <option key={x.id} value={x}>
-                  {x}
-                </option>
-              ))}
-          </select>
+              <select
+                name="filter-search"
+                id="filter"
+                value={brand}
+                onChange={(e) => {
+                  setBrand(e.target.value);
+                }}
+              >
+                <option value="all">All</option>
+                {odata &&
+                  getUniqueData(odata, "brand").map((x) => (
+                    <option key={x.id} value={x}>
+                      {x}
+                    </option>
+                  ))}
+              </select>
+            </div>
+            {/* --------------------------Products---------------------------------- */}
+            <div className="products">
+              <table>
+                <tr>
+                  <th>PRODUCT</th>
+                  <th>BRAND</th>
+                  <th>CATEGORY</th>
+                  <th>STOCK</th>
+                  <th>PRICE</th>
+                  <th>QTY</th>
+                </tr>
+                <>
+                  {pData
+                    ?.slice((pagination - 1) * 10, (pagination - 1) * 10 + 10)
+                    ?.map((item) => (
+                      <tr key={item.id}>
+                        <td className="prod-name">
+                          <div className="image">
+                            <img
+                              className="prod-img"
+                              src={item.image
+                                .replace(/_/g, "/")
+                                .replace(/-/g, "+")}
+                              alt=""
+                            />
+                          </div>
 
-          <select
-            name="filter-search"
-            id="filter"
-            value={brand}
-            onChange={(e) => {
-              setBrand(e.target.value);
-            }}
-          >
-            <option value="all">All</option>
-            {odata &&
-              getUniqueData(odata, "brand").map((x) => (
-                <option key={x.id} value={x}>
-                  {x}
-                </option>
-              ))}
-          </select>
-        </div>
+                          <span className="prod-text">{item.name}</span>
+                        </td>
+                        <td>{item.brand}</td>
+                        <td>{item.category}</td>
+                        <td>
+                          <UserStatus
+                            status={item.quantity > 0 ? "instock" : "outstock"}
+                          />
+                        </td>
+                        <td>Rs {item.retailPrice}</td>
+                        <td>{item.quantity}</td>
+                      </tr>
+                    ))}
+                </>
+              </table>
+            </div>
+          </>
+        ) : (
+          <div className="loader">
+            <img src={loader} alt="" />{" "}
+          </div>
+        )}
 
-        {/* --------------------------Products---------------------------------- */}
-
-        <div className="products">
-          <table>
-            <tr>
-              <th>PRODUCT</th>
-              <th>BRAND</th>
-              <th>CATEGORY</th>
-              <th>STOCK</th>
-              <th>PRICE</th>
-              <th>QTY</th>
-            </tr>
-            <>
-              {pData
-                ?.slice((pagination - 1) * 10, (pagination - 1) * 10 + 10)
-                ?.map((item) => (
-                  <tr key={item.id}>
-                    <td className="prod-name">
-                      <div className="image">
-                        <img
-                          className="prod-img"
-                          src={item.image.replace(/_/g, "/").replace(/-/g, "+")}
-                          alt=""
-                        />
-                      </div>
-
-                      <span className="prod-text">{item.name}</span>
-                    </td>
-                    <td>{item.brand}</td>
-                    <td>{item.category}</td>
-                    <td>
-                      <UserStatus
-                        status={item.quantity > 0 ? "instock" : "outstock"}
-                      />
-                    </td>
-                    <td>Rs {item.retailPrice}</td>
-                    <td>{item.quantity}</td>
-                  </tr>
-                ))}
-            </>
-          </table>
-        </div>
         <Pagination
           className="pagination"
           count={count}

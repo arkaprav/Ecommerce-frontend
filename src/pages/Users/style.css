@@ -60,3 +60,7 @@ td {
   text-size-adjust: 20px;
   color: #a1acb8;
 }
+
+.pname {
+  cursor: pointer;
+}

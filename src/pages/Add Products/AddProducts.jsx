@@ -82,7 +82,7 @@ function AddProducts() {
       <div className="container-prod">
         <SearchBar />
         <div className="content-container">
-          <h1 className="heading">Add Product</h1>
+          <h1 className="add-heading">Add Product</h1>
           <div className="dropzone">
             <Dropzone image={image} setImage={setImage} />
           </div>

@@ -81,3 +81,9 @@
   width: 36px;
   align-items: center;
 }
+
+.loader {
+  margin: auto;
+  object-fit: cover;
+  height: 10px;
+}

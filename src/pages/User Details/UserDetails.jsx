@@ -37,8 +37,8 @@ function UserDetails() {
               <p className="user-name">{user?.name}</p>
               <div className="role">{user?.role}</div>
             </div>
-            <div className="details">Details</div>
             <div className="info">
+              <div className="details">Details</div>
               <p>User Name: {user?.name}</p>
               <p>Email: {user?.email}</p>
 

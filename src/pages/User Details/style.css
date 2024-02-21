@@ -1,15 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,700&display=swap");
 
 .user-cred {
-  height: 550.7px;
-  width: 360px;
+  height: max-content;
+  flex: 1;
   margin: 24px;
   min-height: auto;
   min-width: auto;
   display: flex;
   border: 1px solid #a0a1a2;
   border-radius: 10px;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 .user-pic {
@@ -63,9 +63,12 @@
 
 .details {
   height: 28.6px;
-  width: 325.733px;
   border-bottom: 1px solid #a0a1a2;
-  margin: 24px 24px 0px 24px;
+  margin: 24px 0px 10px 10px;
+}
+
+.info p {
+  margin: 10px 20px;
 }
 
 .info {
@@ -76,16 +79,13 @@
 
 .user-details {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .orders {
-  margin: 24px 0px 24px 0px;
+  margin: 24px;
   display: flex;
   flex-direction: column;
-  max-width: 800px;
-
-  padding-left: 20px;
 }
 
 .order-head {

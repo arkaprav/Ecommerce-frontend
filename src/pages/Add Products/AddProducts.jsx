@@ -14,6 +14,7 @@ function AddProducts() {
   const [retail, setRetail] = useState();
   const [brand, setBrand] = useState();
   const [category, setCategory] = useState("");
+  const [quantity, setQuantity] = useState();
 
   const [image, setImage] = useState(null);
   const [description, setDescription] = useState();
@@ -32,6 +33,7 @@ function AddProducts() {
       catgeoryId: category,
       description: description,
       product_image: image,
+      stock_qty: quantity
     };
 
     // Call the createProduct function to send the data to the backend
@@ -58,7 +60,7 @@ function AddProducts() {
       formData.append("retailPrice", productData.retailPrice);
       formData.append("catgeoryId", productData.catgeoryId);
       formData.append("brand", productData.brand);
-
+      formData.append("stock_qty", productData.stock_qty);
       formData.append("product_image", productData.product_image);
       console.log(formData);
 
@@ -104,17 +106,17 @@ function AddProducts() {
                 />
               </div>
               <div className="form-group category-group">
-                <label htmlFor="category">Brand</label>
+                <label htmlFor="brand">Brand</label>
                 <input
                   onChange={(e) => {
                     setBrand(e.target.value);
                   }}
                   value={brand}
                   className="form-control category-inp"
-                  type="number"
-                  id="category"
-                  name="category"
-                  placeholder="Enter Category"
+                  type="text"
+                  id="brand"
+                  name="brand"
+                  placeholder="Enter Brand Name"
                 />
               </div>
               <div className="form-group buying-group">
@@ -154,26 +156,26 @@ function AddProducts() {
                   }}
                   value={category}
                   className="form-control category-inp"
-                  type="number"
+                  type="text"
                   id="category"
                   name="category"
                   placeholder="Enter Category"
                 />
               </div>
-              {/* <div className="form-group quantity-group">
+              <div className="form-group quantity-group">
                 <label htmlFor="price">Quantity</label>
                 <input
                   value={quantity}
                   onChange={(e) => {
-                    setRetail(e.target.value);
+                    setQuantity(e.target.value);
                   }}
                   className="form-control quantity-inp"
                   type="number"
-                  id="price"
-                  name="price"
+                  id="qantity"
+                  name="quantity"
                   placeholder="Enter quantity"
                 />
-              </div> */}
+              </div>
 
               <div className="form-group">
                 <label htmlFor="description">Description</label>

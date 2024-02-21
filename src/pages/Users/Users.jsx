@@ -69,7 +69,7 @@ function Users() {
               setRole(e.target.value);
             }}
           >
-            <option value="all">All</option>
+            <option value="all">User Role</option>
 
             <option value="Admin">Admin</option>
             <option value="Maintainer">Maintainer</option>

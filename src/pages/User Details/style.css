@@ -10,6 +10,7 @@
   border: 1px solid #a0a1a2;
   border-radius: 10px;
   flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .user-pic {

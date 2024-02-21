@@ -93,7 +93,7 @@ function Transactions() {
               setPayment(e.target.value);
             }}
           >
-            <option value="all">All</option>
+            <option value="all">Payment Status</option>
             <option value="Paid">Paid</option>
             <option value="Pend">Pending</option>
             <option value="Cancelled"> Cancelled</option>
@@ -108,7 +108,7 @@ function Transactions() {
               setMode(e.target.value);
             }}
           >
-            <option value="all">All</option>
+            <option value="all">Mode of Payment</option>
             {getUniqueData(data, "mode_of_payment").map((x) => (
               <option key={x.id} value={x}>
                 {x}

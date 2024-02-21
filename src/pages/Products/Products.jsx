@@ -32,7 +32,7 @@ function Products() {
         const { data } = await axios.get(
           " https://ecommerce-back-end-orpin.vercel.app/api/products/all"
         );
-        console.log(data);
+        console.log("getData",data);
         setOdata(data);
         setPData(data);
       } catch (e) {
@@ -141,7 +141,7 @@ function Products() {
                   setStock(e.target.value);
                 }}
               >
-                <option value="all">All</option>
+                <option value="all">Stock Details</option>
 
                 <option value="in stock">In Stock</option>
                 <option value="out of stock"> Out of Stock</option>
@@ -155,7 +155,7 @@ function Products() {
                   setCat(e.target.value);
                 }}
               >
-                <option value="all">All</option>
+                <option value="all">Category</option>
                 {odata &&
                   getUniqueData(odata, "categoryId")?.map((x) => (
                     <option key={x.id} value={x}>
@@ -172,7 +172,7 @@ function Products() {
                   setBrand(e.target.value);
                 }}
               >
-                <option value="all">All</option>
+                <option value="all">Brand</option>
                 {odata &&
                   getUniqueData(odata, "brand").map((x) => (
                     <option key={x.id} value={x}>
@@ -214,11 +214,11 @@ function Products() {
                         <td>{item.category}</td>
                         <td>
                           <UserStatus
-                            status={item.quantity > 0 ? "instock" : "outstock"}
+                            status={item.stock_qty > 0 ? "instock" : "outstock"}
                           />
                         </td>
                         <td>Rs {item.retailPrice}</td>
-                        <td>{item.quantity}</td>
+                        <td>{item.stock_qty}</td>
                       </tr>
                     ))}
                 </>

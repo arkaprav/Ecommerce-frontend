@@ -54,6 +54,12 @@
   outline: none;
 }
 
+.sidebarItem button {  
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  outline: none;
+}
+
 .clicked {
   background: white;
   border: none;
@@ -78,6 +84,9 @@
   position: relative;
   width: 200px;
   padding: 17px 7px;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  outline: none;
 }
 
 .icons {

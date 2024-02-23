@@ -23,7 +23,6 @@ function UserDetails() {
     <div className="Container">
       <Sidebar />
       <div className="container-prod">
-        <SearchBar />
         <div className="user-details">
           <div className="user-cred">
             <div className="user-pic">

@@ -63,20 +63,6 @@ function Sidebar({ opt }) {
             </div>
             <div className="sidebarItem">
               <button
-                className={option == 3 ? "clicked" : "normal"}
-                onClick={() => {
-                  setOption(3);
-                  navigate("/addproduct");
-                }}
-              >
-                <div className="icons">
-                  <ShoppingCartIcon />
-                </div>
-                Add Product
-              </button>
-            </div>
-            <div className="sidebarItem">
-              <button
                 className={option == 4 ? "clicked" : "normal"}
                 onClick={() => {
                   setOption(4);

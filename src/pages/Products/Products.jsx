@@ -13,6 +13,8 @@ import { filterData } from "../../helpers/datafilter";
 import Pagination from "@mui/material/Pagination";
 import axios from "axios";
 import loader from "../../assets/loader.gif";
+import CategoryTableName from "../../components/CategoryTableName/CategoryTableName";
+import { NavLink } from "react-router-dom";
 
 function Products() {
   const [pData, setPData] = useState([]);
@@ -30,7 +32,7 @@ function Products() {
     const fetchfnc = async () => {
       try {
         const { data } = await axios.get(
-          " https://ecommerce-back-end-orpin.vercel.app/api/products/all"
+          "https://ecommerce-back-end-orpin.vercel.app/api/products/all"
         );
         console.log("getData",data);
         setOdata(data);
@@ -58,7 +60,7 @@ function Products() {
 
   useEffect(() => {}, [pagination]);
 
-  //-------------------------------- get unique data function----------------//
+  //--------------------------------get unique data function----------------//
 
   const getUniqueData = (objectdata, field) => {
     console.log(objectdata);
@@ -67,7 +69,7 @@ function Products() {
     return [...x];
   };
 
-  //------------------------------------  filter function--------------------//
+  //------------------------------------filter function--------------------//
 
   useEffect(() => {
     if (brand !== null || cat !== null || stock !== null) {
@@ -88,7 +90,7 @@ function Products() {
           // do nothing
         } else {
           filterList.push({
-            field: "category",
+            field: "categoryId",
             value: `${cat}`,
             operator: (a, b) => a === b,
           });
@@ -127,6 +129,11 @@ function Products() {
       <Sidebar opt={2} />
       <div className="container-prod">
         <SearchBar />
+        <NavLink to="/addproduct">
+          <button>
+            Add Product
+          </button>
+        </NavLink>
 
         {/* --------------------------Filters---------------------------------- */}
         {pData.length > 0 ? (
@@ -159,7 +166,7 @@ function Products() {
                 {odata &&
                   getUniqueData(odata, "categoryId")?.map((x) => (
                     <option key={x.id} value={x}>
-                      {x}
+                      <CategoryTableName id={x} />
                     </option>
                   ))}
               </select>
@@ -211,7 +218,9 @@ function Products() {
                           <span className="prod-text">{item.name}</span>
                         </td>
                         <td>{item.brand}</td>
-                        <td>{item.category}</td>
+                        <td>
+                          <CategoryTableName id={item.categoryId} />
+                        </td>
                         <td>
                           <UserStatus
                             status={item.stock_qty > 0 ? "instock" : "outstock"}

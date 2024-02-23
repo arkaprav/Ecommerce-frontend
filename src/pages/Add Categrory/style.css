@@ -1,0 +1,160 @@
+.addproduct {
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+    margin: auto;
+    margin-top: 40px;
+    width: 800px;
+    height: 800px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 3px 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    margin-bottom: 25px;
+    flex-wrap: wrap; */
+  }
+  .addproduct form {
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 40px;
+  }
+  /* .addproduct:hover {
+    border: 2px solid black;
+  } */
+  
+  .form-group {
+    margin-right: 105px;
+    /* margin-top: 60x; */
+  }
+  
+  .form-control {
+    margin-bottom: 30px;
+    width: 450px;
+    border-radius: 6px;
+    padding: 15px;
+    /* padding: 20px 0 20px 0; */
+  
+    background: rgba(255, 255, 255, 0.2);
+  
+    box-shadow: 3px 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .form-group label {
+    padding-bottom: 10px;
+  }
+  
+  .addbtn {
+    height: 30px;
+    width: 100px;
+  
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-family: "Russo one", sans-serif;
+    align-items: start;
+    background-color: black;
+    color: white;
+  }
+  
+  .addbtn:hover {
+    background-color: rgb(38, 38, 38);
+    color: white;
+  }
+  
+  label {
+    font-family: "Russo one", sans-serif;
+    font-size: 15px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+    padding-bottom: 3px;
+  }
+  
+  .btnadd {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-top: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .btnadd button {
+    position: relative;
+    margin-left: 50px;
+  }
+  
+  .image-preview-container {
+    max-width: 100px;
+    max-height: 100px;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 20px;
+    border: 1px solid black;
+  }
+  
+  .image-preview {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .add-heading {
+    font-family: "Russo one", sans-serif;
+    /* justify-content: center; 
+    align-items: center; */
+    display: flex;
+    margin-left: 50px;
+    font-size: 50px;
+    padding-bottom: 10px;
+  }
+  
+  .dropzone {
+    display: flex;
+    margin-left: 50px;
+  }
+  .Container {
+    display: flex;
+    flex-direction: row;
+    height: max-content;
+    /* position: relative; */
+    min-height: 100vh;
+  }
+  
+  .container-prod {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    flex: 1;
+  }
+  
+  /* .content-container {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+  } */
+  .container-prod button {
+    float: right;
+    padding: 8px 10px;
+    background-color: #000;
+    color: #fff;
+    font-size: 15px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    margin: 10px;
+  }

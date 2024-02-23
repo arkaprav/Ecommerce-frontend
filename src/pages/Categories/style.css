@@ -12,3 +12,15 @@
   width: fit-content;
   flex: 1;
 }
+.no-prod {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  margin-top: -20px;
+  color: #acacac;
+  font-size: 22px;
+}
+
+img {
+  width: 150px;
+}

@@ -21,8 +21,8 @@
 .filter {
   display: flex;
   flex-direction: row;
-  right: 63px;
-  top: 70px;
+  right: 45px;
+  top: 115px;
   position: absolute;
   margin-top: 20px;
 }

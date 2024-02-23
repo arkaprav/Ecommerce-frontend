@@ -14,6 +14,7 @@ import Pagination from "@mui/material/Pagination";
 import axios from "axios";
 import loader from "../../assets/loader.gif";
 import CategoryTableName from "../../components/CategoryTableName/CategoryTableName";
+import { NavLink } from "react-router-dom";
 
 function Products() {
   const [pData, setPData] = useState([]);
@@ -128,6 +129,11 @@ function Products() {
       <Sidebar opt={2} />
       <div className="container-prod">
         <SearchBar />
+        <NavLink to="/addproduct">
+          <button>
+            Add Product
+          </button>
+        </NavLink>
 
         {/* --------------------------Filters---------------------------------- */}
         {pData.length > 0 ? (

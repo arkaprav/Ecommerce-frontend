@@ -14,6 +14,7 @@ import AddProducts from "./pages/Add Products/AddProducts";
 import Register from "./pages/Register/Register";
 import Login from "./pages/Login/Login";
 import UserDetails from "./pages/User Details/UserDetails";
+import AddCategory from "./pages/Add Categrory/AddCategory";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -24,6 +25,7 @@ function App() {
           <Route path="/" element={<Dashboard />} />
           <Route path="/addproduct" element={<AddProducts />} />
           <Route path="/categories" element={<Categories />} />
+          <Route path="/add-category" element={<AddCategory />} />
           <Route path="/products" element={<Products />} />
           <Route path="/transactions" element={<Transactions />} />
           <Route path="/users" element={<Users />} />

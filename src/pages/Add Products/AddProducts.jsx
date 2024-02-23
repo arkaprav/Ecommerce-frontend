@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./style.css";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import SearchBar from "../../components/Search Bar/SearchBar";
@@ -13,25 +13,44 @@ function AddProducts() {
   const [buying, setBuying] = useState();
   const [retail, setRetail] = useState();
   const [brand, setBrand] = useState();
-  const [category, setCategory] = useState("");
   const [quantity, setQuantity] = useState();
-
   const [image, setImage] = useState(null);
   const [description, setDescription] = useState();
-  // const [imagePreview, setImagePreview] = useState(null);
+  const [categoryId, setCategoryId] = useState();
+  const [categories, setCategories] = useState();
   const navigate = useNavigate();
   const [cookies] = useCookies(["access_token"]);
+
+  const handleFetchCategories = async () => {
+    await axios.get("https://ecommerce-back-end-orpin.vercel.app/api/category/all").then((res) => {
+      setCategories(res.data);
+    }).catch((err) => {
+      console.log(err);
+    });
+  }
+
+  useEffect(() => {
+    handleFetchCategories();
+  }, []);
+
+  useEffect(() => {
+    if(categories) {
+      if(categories.length !== 0){
+        setCategoryId(categories[0]._id);
+      }
+    }
+  }, [categories]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(image);
     const productData = {
       name: title,
-      brand: brand,
+      brand,
       purchasePrice: buying,
       retailPrice: retail,
-      catgeoryId: category,
-      description: description,
+      categoryId,
+      description,
       product_image: image,
       stock_qty: quantity
     };
@@ -58,7 +77,7 @@ function AddProducts() {
       formData.append("description", productData.description);
       formData.append("purchasePrice", productData.purchasePrice);
       formData.append("retailPrice", productData.retailPrice);
-      formData.append("catgeoryId", productData.catgeoryId);
+      formData.append("categoryId", productData.categoryId);
       formData.append("brand", productData.brand);
       formData.append("stock_qty", productData.stock_qty);
       formData.append("product_image", productData.product_image);
@@ -150,17 +169,20 @@ function AddProducts() {
               </div>
               <div className="form-group category-group">
                 <label htmlFor="category">Category</label>
-                <input
-                  onChange={(e) => {
-                    setCategory(e.target.value);
-                  }}
-                  value={category}
-                  className="form-control category-inp"
-                  type="text"
-                  id="category"
+                <select
                   name="category"
-                  placeholder="Enter Category"
-                />
+                  value={categoryId}
+                  onChange={(e) => setCategoryId(e.target.value)}
+                  className="form-control retail-inp"
+                >
+                  {categories && categories.map((c) => {
+                    return <option
+                      value={c._id}
+                    >
+                      {c.name}({c.no_of_products})
+                    </option>
+                  })}
+                </select>
               </div>
               <div className="form-group quantity-group">
                 <label htmlFor="price">Quantity</label>

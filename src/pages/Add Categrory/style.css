@@ -1,24 +1,3 @@
-.addproduct {
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-    margin: auto;
-    margin-top: 40px;
-    width: 800px;
-    height: 800px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    box-shadow: 3px 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    margin-bottom: 25px;
-    flex-wrap: wrap; */
-  }
   .addproduct form {
     display: flex;
     flex-direction: row;
@@ -28,13 +7,10 @@
     flex-wrap: wrap;
     margin-left: 40px;
   }
-  /* .addproduct:hover {
-    border: 2px solid black;
-  } */
+
   
   .form-group {
     margin-right: 105px;
-    /* margin-top: 60x; */
   }
   
   .form-control {
@@ -42,7 +18,6 @@
     width: 450px;
     border-radius: 6px;
     padding: 15px;
-    /* padding: 20px 0 20px 0; */
   
     background: rgba(255, 255, 255, 0.2);
   
@@ -116,8 +91,6 @@
   
   .add-heading {
     font-family: "Russo one", sans-serif;
-    /* justify-content: center; 
-    align-items: center; */
     display: flex;
     margin-left: 50px;
     font-size: 50px;
@@ -142,12 +115,6 @@
     width: fit-content;
     flex: 1;
   }
-  
-  /* .content-container {
-    display: flex;
-    flex-direction: row;
-    align-items: start;
-  } */
   .container-prod a button {
     float: right;
     padding: 8px 10px;

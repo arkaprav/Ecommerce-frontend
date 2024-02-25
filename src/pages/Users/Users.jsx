@@ -1,128 +1,100 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from "react";
-import Sidebar from "../../components/Sidebar/Sidebar";
-import SearchBar from "../../components/Search Bar/SearchBar";
-import "./style.css";
-import UserStatus from "../../components/User Status/UserStatus";
-import { userData } from "../../data/userData";
-import { filterData } from "../../helpers/datafilter";
-import Pagination from "@mui/material/Pagination";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import Sidebar from '../../components/Sidebar/Sidebar'
+import SearchBar from '../../components/Search Bar/SearchBar'
+import { NavLink } from 'react-router-dom'
+import axios from 'axios'
 
-function Users() {
-  const [role, setRole] = useState(null);
-  const [uData, setUData] = useState(userData);
-  const [pagination, setPagination] = useState(1);
-  const [count, setCount] = useState(1);
-  const navigate = useNavigate();
-  //  ---------------------filter function ---------------------------------//
-  const handleChange = (e, p) => {
-    setPagination(p);
-  };
-
-  // useEffect pagenation
+const Users = () => {
+  const [users, setUsers] = useState();
+  const [err, setErr] = useState();
+  const [content, setContent] = useState();
+  const [noProd, setnoProd] = useState();
 
   useEffect(() => {
-    setCount(Math.ceil(uData.length / 10));
-  }, [uData]);
-
-  //  slice  tdata  useeffect
-
-  useEffect(() => {}, [pagination]);
+    const handlegetSubscriber = async () => {
+      await axios.get("https://ecommerce-back-end-orpin.vercel.app/api/subscribers/all").then((res) => {
+        console.log(res);
+        setUsers(res.data);
+      }).catch((err) => {
+        setErr(err);
+      })
+    };
+    handlegetSubscriber();
+  }, []);
 
   useEffect(() => {
-    if (role !== null) {
-      let filterList = [];
-      if (role !== null) {
-        if (role === "all") {
-          // do nothing
-        } else {
-          filterList.push({
-            field: "role",
-            value: `${role}`,
-            operator: (a, b) => a === b,
-          });
-        }
+    if(users){
+      if(users.length !== 0) {
+        setContent(users.map((d) => {
+          return <tr key={d._id}>
+            <td>{d.name}</td>
+            <td>{d.address}</td>
+            <td>
+              {d.email} <br />
+              {d.phone}
+            </td>
+            <td>{JSON.parse(d.orders).length}</td>
+          </tr>
+        }))
+        setnoProd();
       }
-
-      console.log(filterList);
-      let newData = filterData(userData, filterList);
-      setUData(newData);
+      else{
+        setContent();
+        setnoProd(
+          <div className='no-prod'>
+            No Products Found!!
+          </div>
+        );
+      }
     }
-  }, [role]);
+    else if (err) {
+      setContent();
+      setnoProd(
+        <div className='no-prod'>
+          error! reload required!!
+        </div>
+      );
+    }
+    else{
+      setContent();
+      setnoProd(
+        <div className='no-prod'>
+          Loading Users...
+        </div>
+      )
+    }
+    console.log(users);
+  }, [users, err]);
 
-  //-----------------------------return statement---------------------------//
   return (
-    <div className="Container">
-      <Sidebar opt={5} />
-      <div className="container-prod">
+    <div className='Container'>
+      <Sidebar opt={4} />
+      <div className='container-prod'>
         <SearchBar />
-        {/*----------------------- FILTERS--------------------------------------------------------------- */}
-
-        <div className="filter">
-          <select
-            name="filter-search"
-            id="filter"
-            value={role}
-            onChange={(e) => {
-              setRole(e.target.value);
-            }}
-          >
-            <option value="all">User Role</option>
-
-            <option value="Admin">Admin</option>
-            <option value="Maintainer">Maintainer</option>
-            <option value="Subscriber">Subscriber</option>
-            <option value="Editor">Editor</option>
-          </select>
-        </div>
-        {/* --------------------------------------user---------------------------------------------------------- */}
-        <div className="users">
+        <NavLink to='/add-users'>
+          <button>
+            Add Users
+          </button>
+        </NavLink>
+        <div className='products'>
           <table>
-            <tr>
-              <th>USER</th>
-              <th>ROLE</th>
-              <th>PLAN</th>
-              <th>BILLING</th>
-              <th>STATUS</th>
-            </tr>
-            <>
-              {uData
-                .slice((pagination - 1) * 10, (pagination - 1) * 10 + 10)
-                ?.map((item) => (
-                  <tr key={item.id}>
-                    <td className="right" scope="row">
-                      <span
-                        className="pname"
-                        onClick={() => {
-                          navigate(`/userdetails/${item.id}`);
-                        }}
-                      >
-                        {item.name}
-                      </span>
-                      <span className="mail">{item.email}</span>
-                    </td>
-                    <td>{item.role}</td>
-                    <td>{item.plan}</td>
-                    <td>{item.billing}</td>
-                    <td>
-                      <UserStatus status={item.status} />
-                    </td>
-                  </tr>
-                ))}
-            </>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Contacts</th>
+                <th>Orders</th>
+              </tr>
+            </thead>
+            <tbody>
+              {content}
+            </tbody>
           </table>
+          {noProd}
         </div>
-        <Pagination
-          className="pagination"
-          count={count}
-          color="primary"
-          onChange={handleChange}
-        ></Pagination>
       </div>
     </div>
-  );
+  )
 }
 
-export default Users;
+export default Users

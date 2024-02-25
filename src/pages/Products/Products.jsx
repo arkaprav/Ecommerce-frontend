@@ -191,14 +191,17 @@ function Products() {
             {/* --------------------------Products---------------------------------- */}
             <div className="products">
               <table>
-                <tr>
-                  <th>PRODUCT</th>
-                  <th>BRAND</th>
-                  <th>CATEGORY</th>
-                  <th>STOCK</th>
-                  <th>PRICE</th>
-                  <th>QTY</th>
-                </tr>
+                <thead>
+                  <tr>
+                    <th>PRODUCT</th>
+                    <th>BRAND</th>
+                    <th>CATEGORY</th>
+                    <th>STOCK</th>
+                    <th>PRICE</th>
+                    <th>QTY</th>
+                  </tr>
+                </thead>
+                <tbody>
                 <>
                   {pData
                     ?.slice((pagination - 1) * 10, (pagination - 1) * 10 + 10)
@@ -231,6 +234,7 @@ function Products() {
                       </tr>
                     ))}
                 </>
+                </tbody>
               </table>
             </div>
           </>

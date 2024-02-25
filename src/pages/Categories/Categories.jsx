@@ -36,7 +36,7 @@ function Categories() {
       }
       else {
         setContent(categories.map((c) => {
-          return <tr>
+          return <tr key={c._id}>
             <td>{c.name}</td>
             <td>{c.description}</td>
             <td>

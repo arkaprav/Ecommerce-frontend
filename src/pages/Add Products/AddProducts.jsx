@@ -101,7 +101,6 @@ function AddProducts() {
     <div className="Container">
       <Sidebar opt={3} />
       <div className="container-prod">
-        <SearchBar />
         <div className="content-container">
           <h1 className="add-heading">Add Product</h1>
           <div className="dropzone">

@@ -12,55 +12,14 @@
   width: fit-content;
   flex: 1;
 }
-
-.users {
-  padding-top: 10px;
-}
-
-table {
-  border-collapse: collapse;
+.no-prod {
   width: 90%;
   margin: auto;
-  font-family: "Poppins", sans-serif;
-  margin-bottom: 40px;
+  text-align: center;
+  color: #acacac;
+  font-size: 22px;
 }
 
-tr {
-  border-right: 2px solid #ddd;
-  border-left: 2px solid #ddd;
-}
-th {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-top: 2px solid #ddd;
-  padding-bottom: 8px;
-  text-align: left;
-  border-bottom: 2px solid #ddd;
-  padding-left: 10px;
-}
-
-td {
-  position: relative;
-  padding-top: 18px;
-  padding-bottom: 18px;
-  padding-left: 10px;
-  border-bottom: 1px solid #ddd;
-}
-
-.right {
-  display: flex;
-  flex-direction: column;
-}
-
-.right:hover .pname {
-  text-decoration: underline;
-}
-.mail {
-  padding-top: 6px;
-  text-size-adjust: 20px;
-  color: #a1acb8;
-}
-
-.pname {
-  cursor: pointer;
+img {
+  width: 150px;
 }

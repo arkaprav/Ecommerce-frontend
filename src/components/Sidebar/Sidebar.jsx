@@ -86,7 +86,7 @@ function Sidebar({ opt }) {
                 <div className="icons">
                   <GroupIcon className=" icons" />
                 </div>
-                Users
+                Subscribers
               </button>
             </div>
             <div className="sidebarItem">

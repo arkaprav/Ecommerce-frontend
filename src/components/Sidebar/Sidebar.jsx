@@ -89,21 +89,6 @@ function Sidebar({ opt }) {
                 Subscribers
               </button>
             </div>
-            <div className="sidebarItem">
-              <button
-                className={option == 6 ? "clicked" : "normal"}
-                onClick={() => {
-                  setOption(6);
-                  navigate("/transactions");
-                }}
-              >
-                {" "}
-                <div className="icons">
-                  <PaidIcon className=" icons" />
-                </div>
-                Transactions
-              </button>
-            </div>
           </div>
         </div>
       ) : (

@@ -8,7 +8,6 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import CreateIcon from "@mui/icons-material/Create";
 import DeleteIcon from "@mui/icons-material/Delete";
 import UserStatus from "../../components/User Status/UserStatus";
-import { data } from "../../data/Data";
 import { filterData } from "../../helpers/datafilter";
 import Pagination from "@mui/material/Pagination";
 import axios from "axios";

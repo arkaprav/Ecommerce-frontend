@@ -36,6 +36,22 @@
   background-color: #c0c0c0;
 }
 
+.filter {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: flex-end;
+  margin: 10px 55px;
+}
+
+.filter select {
+  border-radius: 5px;
+}
+
+ul {
+  justify-content: center;
+}
+
 .products table tbody tr:last-child td:first-child{
   border-bottom-left-radius: 20px;
 }
